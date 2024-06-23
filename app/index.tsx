@@ -5,7 +5,7 @@ import { WebView } from "react-native-webview";
 
 SplashScreen.preventAutoHideAsync();
 export default function App() {
-  const [counter, setCounter] = useState<number>(1);
+  const [counter, setCounter] = useState<number>(5);
   const [isLoading, setLoading] = useState<boolean>(true);
   const onLayoutRootView = useCallback(async () => {
     if (counter === 0) {
