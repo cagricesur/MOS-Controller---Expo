@@ -20,7 +20,6 @@ export default function App() {
 
   let interval: NodeJS.Timeout | undefined;
   useEffect(() => {
-    console.log(counter);
     if (!interval) {
       interval = setInterval(() => {
         setCounter(counter - 1);
@@ -54,20 +53,13 @@ export default function App() {
           />
         )}
         <WebView
-          onLoadProgress={(event) => {
-            console.log(`onLoadProgress ${event.eventPhase}`);
-          }}
-          onLoadStart={() => {
-            console.log("onLoadStart");
-          }}
-          onLoad={() => {
-            console.log("onLoad");
-          }}
+          onLoadProgress={(event) => {}}
+          onLoadStart={() => {}}
+          onLoad={() => {}}
           onLoadEnd={() => {
-            console.log("onLoadEnd");
             setLoading(false);
           }}
-          source={{ uri: `${process.env.EXPO_WEBVIEW_URL}` }} // Replace with your website URL
+          source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }} // Replace with your website URL
         />
       </SafeAreaView>
     );

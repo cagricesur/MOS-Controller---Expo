@@ -10,7 +10,7 @@
     "preview": {
       "distribution": "internal",
       "env": {
-        "EXPO_WEBVIEW_URL": "https://cagricesur.com"
+        "EXPO_PUBLIC_WEBVIEW_URL": "https://cagricesur.com"
       },
       "android": {
         "buildType": "apk",
