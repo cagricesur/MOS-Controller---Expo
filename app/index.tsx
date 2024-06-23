@@ -17,7 +17,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <WebView
-        source={{ uri: "http://192.168.0.15:5174" }} // Replace with your website URL
+        source={{ uri: "https://cagricesur.com/" }} // Replace with your website URL
       />
     </SafeAreaView>
   );
