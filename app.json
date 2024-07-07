@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "MOS Controller",
+    "runtimeVersion": "1.0.0",
     "slug": "mos-controller",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,9 +14,11 @@
       "backgroundColor": "#000000"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "userInterfaceStyle": "light"
     },
     "android": {
+      "userInterfaceStyle": "light",
       "package": "com.unsignedinteger.moscontroller",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
@@ -26,7 +29,7 @@
       "output": "static",
       "bundler": "metro"
     },
-    "plugins": [],
+    "plugins": ["./plugins/withDisableForcedDarkModeAndroid.js"],
     "experiments": {
       "typedRoutes": true
     },
