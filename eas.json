@@ -17,7 +17,15 @@
         "image": "latest"
       }
     },
-    "production": {}
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_WEBVIEW_URL": "https://cagricesur.com"
+      },
+      "android": {
+        "buildType": "apk",
+        "image": "latest"
+      }
+    }
   },
   "submit": {
     "production": {}
