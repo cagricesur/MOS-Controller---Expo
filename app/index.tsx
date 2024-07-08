@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { ActivityIndicator, SafeAreaView } from "react-native";
+import {
+  ActivityIndicator,
+  KeyboardAvoidingView,
+  SafeAreaView,
+} from "react-native";
 import { WebView } from "react-native-webview";
 
 export default function App() {
@@ -21,12 +25,14 @@ export default function App() {
           size={64}
         />
       )}
-      <WebView
-        onLoadEnd={() => {
-          setLoading(false);
-        }}
-        source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }} // Replace with your website URL
-      />
+      <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+        <WebView
+          onLoadEnd={() => {
+            setLoading(false);
+          }}
+          source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }} // Replace with your website URL
+        />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
