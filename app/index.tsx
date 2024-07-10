@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   ActivityIndicator,
+  AppState,
   KeyboardAvoidingView,
   SafeAreaView,
 } from "react-native";
@@ -8,7 +9,17 @@ import { WebView } from "react-native-webview";
 
 export default function App() {
   const [isLoading, setLoading] = useState<boolean>(true);
+  const webViewRef = useRef<WebView>(null);
+  useEffect(() => {
+    const subscription = AppState.addEventListener("change", (status) => {
+      console.log(status);
+      if (status === "active") {
+        webViewRef.current && webViewRef.current.reload();
+      }
+    });
 
+    return () => subscription.remove();
+  }, []);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {isLoading && (
@@ -33,6 +44,7 @@ export default function App() {
           onShouldStartLoadWithRequest={() => {
             return false;
           }}
+          ref={webViewRef}
           source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }}
         />
       </KeyboardAvoidingView>
