@@ -30,7 +30,10 @@ export default function App() {
           onLoadEnd={() => {
             setLoading(false);
           }}
-          source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }} // Replace with your website URL
+          onShouldStartLoadWithRequest={() => {
+            return false;
+          }}
+          source={{ uri: `${process.env.EXPO_PUBLIC_WEBVIEW_URL}` }}
         />
       </KeyboardAvoidingView>
     </SafeAreaView>
